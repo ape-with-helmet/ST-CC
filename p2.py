@@ -4,6 +4,6 @@
 #git branch -m branch_name      THis command renames a branch
 #git checkout branch_name       This command switches to the named branch
 #git branch -v                  This command shows all the branches and the files opened recently
-#git add                        This command adds a file to branch
-#git commit -m "---"            This command commits the changes
+#git add                        This command stages a file to commit queue
+#git commit -m "---"            This command commits the staged changes
 #git push origin from:to        This command is to push from a location to a repo
