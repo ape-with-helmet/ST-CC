@@ -1,0 +1,2 @@
+if i==a:
+    #     return
