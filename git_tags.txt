@@ -13,6 +13,8 @@ git tag v1.0
 
 git tag -a v1.0
 #makes an Annotated tag of version 1.0.0 with no message
+git tag -a v1.0.0
+#makes a tag of version 1.0.0 with no message
 
 git tag -a v1.0.1 -m "This message will be displayed along with the tag!"
 #version v1.0.1 created along with the message.
