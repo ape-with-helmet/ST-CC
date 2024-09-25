@@ -1,68 +1,84 @@
+# Triangle Type Determination Program
 
-# Commission Calculation Program (com.c)
+## Overview
+This C program determines the type of triangle based on the lengths of its sides. It includes functions for manual testing, Boundary Value Analysis (BVA), and structured testing cases to validate triangle properties.
 
-This C program, `com.c`, calculates the commission based on sales of three types of items: locks, stocks, and barrels. It also performs testing using manual inputs, Boundary Value Analysis (BVA), and Output Boundary Value Analysis (OutputBVA).
+## Functions
 
-## Features
-- **Commission Calculation**: The program calculates commission based on the number of locks, stocks, and barrels sold.
-- **Input Validation**: Ensures input values for the number of locks, stocks, and barrels are within their allowed ranges. If the input exceeds the valid range, the program will terminate.
-- **Manual Testing**: The user can manually input the number of locks, stocks, and barrels to calculate the commission.
-- **Boundary Value Analysis (BVA)**: The program runs test cases for boundary values of the inputs (locks, stocks, barrels).
-- **Output Boundary Value Analysis (OutputBVA)**: It also runs a set of predefined test cases to verify the program's output for boundary values.
-
-## How It Works
-The program calculates the commission based on the total sales value of the locks, stocks, and barrels using the following conditions:
-- If total sales are above $1800, the commission is $220 plus 20% of the sales exceeding $1800.
-- If total sales are above $1000 but less than or equal to $1800, the commission is $100 plus 15% of the sales exceeding $1000.
-- If total sales are less than or equal to $1000, the commission is 10% of the total sales.
-
-## File Structure
-### 1. `commission(int locks, int stocks, int barrels)`
-This function takes the number of locks, stocks, and barrels and calculates the total sales and commission based on the conditions outlined above.
+### 1. `triangleType(int a, int b, int c)`
+- **Purpose**: Determines if a triangle is possible with given sides and returns the type of triangle.
+- **Parameters**:
+  - `int a`: Length of the first side.
+  - `int b`: Length of the second side.
+  - `int c`: Length of the third side.
+- **Returns**: A string indicating the type of triangle ("Equilateral", "Isosceles", "Scalene", "Not a triangle") or "Invalid" if input is out of limits.
 
 ### 2. `manual()`
-The `manual()` function prompts the user to enter the number of locks, stocks, and barrels. The commission is calculated based on the inputs, and the result is printed.
+- **Purpose**: Facilitates manual testing of the triangle type function.
+- **Output**: Prompts the user to enter the lengths of the triangle sides and displays the resulting triangle type.
 
 ### 3. `OutputBVA()`
-This function runs a set of 31 test cases using boundary values for locks, stocks, and barrels to verify the correctness of the commission calculation.
+- **Purpose**: Executes a set of 31 test cases for Boundary Value Analysis (BVA).
+- **Output**: Displays the test case inputs and corresponding outputs for triangle type determination.
 
 ### 4. `BVA()`
-The `BVA()` function runs test cases for boundary value analysis, testing different combinations of boundary values for locks, stocks, and barrels.
+- **Purpose**: Tests the triangle type function using edge cases for Boundary Value Analysis (BVA).
+- **Output**: Displays test case inputs and corresponding outputs for varying lengths of triangle sides.
 
 ### 5. `main()`
-The main function allows the user to choose between manual testing, OutputBVA, or BVA. Based on the user's selection, the corresponding function is executed.
+- **Purpose**: Main function to select the testing method (manual testing, Output BVA, or BVA).
+- **Input**: User input to select the testing method.
+- **Output**: Executes the corresponding testing function based on user selection.
 
-## How to Run
+## Usage
+1. Compile the program using a C compiler:
+   ```bash
+   gcc triangle.c -o triangle
+    ```
+2. Run the executable:
+    ```bash
+    ./triangle
+    ```
+3. Select the testing method by entering:
+*   `0` for manual testing.
+*   `1` for executing the output BVA tests.
+*   `2` for executing edge case BVA tests.
 
-### 1. Compile the program
-```bash
-gcc com.c -o com
+## Example outputs
+* For manual testing, if the user enters 3, 4, 5 the output will be:
+    ```bash
+    The triangle type: Scalene
+    ```
+* For BVA tests, the output will display structured test cases:
+    ```yaml
+    Running OutputBVA...
+    TC0: 1, 1, 1	Output: Equilateral
+    TC1: 2, 2, 2	Output: Equilateral
+    TC2: 3, 3, 3	Output: Equilateral
+    TC3: 1, 1, 2	Output: Not a triangle
+    TC4: 5, 5, 5	Output: Equilateral
+    TC5: 9, 9, 9	Output: Equilateral
+    TC6: 10, 10, 9	Output: Isosceles
+    TC7: 10, 10, 10	Output: Equilateral
+    TC8: 10, 9, 10	Output: Isosceles
+    TC9: 11, 10, 10	Output: Invalid
+    ```
+* For BVA testing, you may see:
+    ```yaml
+    Running BVA test...
+    TC0: 1, 5, 5	Output: Isosceles
+    TC1: 2, 5, 5	Output: Isosceles
+    TC2: 5, 5, 5	Output: Equilateral
+    TC3: 9, 5, 5	Output: Not a triangle
+    TC4: 10, 5, 5	Output: Not a triangle
+    ```
+## Limitations
+* The side lengths must be between 1 and 10 inclusive.
+* If any side length exceeds these limits, an "Invalid" message will be displayed, and the program will terminate.
+
+## Conclusion
+This program effectively categorizes triangles based on user-provided side lengths and includes various testing methods to ensure its reliability and accuracy in determining triangle types.
+```typescript
+
+Feel free to copy and save this content as a `.md` file, for example, `triangle_program.md`. Let me know if you need any further adjustments!
 ```
-
-### 2. Run the program
-```bash
-./com
-```
-
-### 3. Select a test method
-When prompted, you can select the desired testing method:
-- **Manual test**: Enter 0 to manually input sales data.
-- **OutputBVA test**: Enter 1 to run boundary value analysis tests.
-- **BVA test**: Enter 2 to run boundary value tests on inputs.
-
-### Example Interaction
-```bash
-Manual test(0)
-OutputBVA(1)
-BVA(2): 0
-Enter the sales numbers of locks, stocks, barrels: 30 40 50
-Sales: 2900   The commission for the entered sales: 340.00
-```
-
-## Improvements
-- **Dynamic Testing**: Adding more sophisticated test cases or dynamically generating test inputs.
-- **Input Validation**: Adding more comprehensive input validation and error handling.
-  
-## Dependencies
-No external dependencies are required. The program runs using standard C libraries.
-
