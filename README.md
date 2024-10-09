@@ -14,7 +14,7 @@ This repository, **ST-CC**, contains code files for the experiments conducted in
 ---
 
 ## Cloud Computing Laboratory
-The Cloud Computing Laboratory experiments explore:
+The Cloud Computing Laboratory experiments explores:
 - **Virtualization** and **Cloud Deployment** using platforms such as AWS and GCP.
 - **Scaling and Load Balancing** in cloud environments.
 - **Serverless Computing** and cloud storage services.
